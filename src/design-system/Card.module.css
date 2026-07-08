@@ -1,0 +1,101 @@
+.hero,
+.vertical {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hero {
+  width: 100%;
+}
+
+.vertical {
+  width: 260px;
+  flex: 0 0 auto;
+}
+
+.imageWrap {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-fill-subtle);
+}
+
+.hero .imageWrap {
+  aspect-ratio: 398 / 300;
+}
+
+.vertical .imageWrap {
+  aspect-ratio: 260 / 300;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.dateRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-brand-yellow);
+  border-radius: 1px;
+}
+
+.date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--color-ink);
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: var(--radius-xs);
+  background: var(--color-brand-yellow);
+  color: var(--color-ink);
+}
+
+.title {
+  margin-top: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.02;
+  letter-spacing: 0.005em;
+  /* wrap so the highlight hugs each line */
+  align-self: flex-start;
+}
+
+.hero .title {
+  font-size: 44px;
+}
+
+.vertical .title {
+  font-size: 30px;
+}
+
+.titleHighlight {
+  background: var(--color-brand-yellow);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.02em 0.08em;
+}

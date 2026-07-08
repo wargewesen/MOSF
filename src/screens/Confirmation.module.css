@@ -1,0 +1,105 @@
+.screen {
+  min-height: 100%;
+  background: var(--color-surface);
+}
+
+.header {
+  background: var(--color-brand-blue);
+}
+
+.container {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  margin-top: calc(-1 * var(--radius-lg));
+  padding: var(--space-6) var(--space-4) 140px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.ticket {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.ticketWord {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.highlight {
+  background: var(--color-brand-yellow);
+  padding: 0.02em 0.1em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.detailBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.detailValue {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.15;
+  color: var(--color-ink);
+}
+
+.qr {
+  flex: 0 0 auto;
+}
+
+.guest {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+  text-align: center;
+  padding-top: var(--space-2);
+}
+
+.guestName {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.guestEmail {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-3);
+}

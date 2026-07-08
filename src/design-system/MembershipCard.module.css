@@ -1,0 +1,44 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  min-height: 148px;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-brand-yellow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--color-ink) 1.2px, transparent 1.2px);
+  background-size: 10px 10px;
+  opacity: 0.18;
+  mask-image: linear-gradient(to left, black, transparent 55%);
+  -webkit-mask-image: linear-gradient(to left, black, transparent 55%);
+}
+
+.title {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.button {
+  position: relative;
+  align-self: flex-end;
+  height: 38px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-full);
+  background: var(--color-ink);
+  color: var(--color-surface);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+}

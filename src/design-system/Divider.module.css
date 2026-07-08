@@ -1,0 +1,11 @@
+.horizontal {
+  width: 100%;
+  height: var(--border-width);
+  background: var(--color-line);
+}
+
+.vertical {
+  align-self: stretch;
+  width: var(--border-width);
+  background: var(--color-line);
+}

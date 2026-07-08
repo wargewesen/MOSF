@@ -1,0 +1,39 @@
+.bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-3) 0 var(--space-6);
+  background: linear-gradient(to top, var(--color-surface) 55%, rgba(255, 255, 255, 0));
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-drawer);
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  color: var(--color-ink);
+}
+
+.tab svg {
+  width: 22px;
+  height: 22px;
+}
+
+.active {
+  background: var(--color-brand-blue);
+}
