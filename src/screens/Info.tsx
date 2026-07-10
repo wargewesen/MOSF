@@ -30,7 +30,7 @@ export function Info() {
     <div className={styles.screen}>
       <header className={styles.header}>
         <StatusBar />
-        <AppHeader title="Information" onBack={() => navigate('/')} />
+        <AppHeader title="Information" />
       </header>
 
       <main className={styles.container}>

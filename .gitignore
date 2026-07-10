@@ -5,3 +5,7 @@ dist-ssr
 .DS_Store
 .vite
 node_modules/.tmp
+.review
+tsconfig.tsbuildinfo
+.claude
+.figma
