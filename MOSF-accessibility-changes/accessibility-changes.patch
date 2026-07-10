@@ -1,0 +1,92 @@
+diff --git a/src/design-system/Calendar.module.css b/src/design-system/Calendar.module.css
+index 7a1ee17..8e0da11 100644
+--- a/src/design-system/Calendar.module.css
++++ b/src/design-system/Calendar.module.css
+@@ -46,8 +46,8 @@
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+-  width: 38px;
+-  height: 38px;
++  width: 44px;
++  height: 44px;
+   border-radius: var(--radius-full);
+   font-family: var(--font-mono);
+   font-size: 13px;
+diff --git a/src/design-system/Calendar.tsx b/src/design-system/Calendar.tsx
+index 1f49d45..6aecd0d 100644
+--- a/src/design-system/Calendar.tsx
++++ b/src/design-system/Calendar.tsx
+@@ -42,21 +42,23 @@ export function Calendar({ value, onChange }: CalendarProps) {
+ 
+   const step = (delta: number) => setView(new Date(year, month + delta, 1))
+ 
++  const monthLabel = `${MONTHS[month]} ${year}`
++
+   return (
+     <div className={styles.calendar}>
+       <div className={styles.head}>
+         <button className={styles.arrow} onClick={() => step(-1)} aria-label="Previous month">
+           <Chevron dir="left" />
+         </button>
+-        <span className={styles.month}>
+-          {MONTHS[month]} {year}
++        <span className={styles.month} id={`cal-month-${month}-${year}`}>
++          {monthLabel}
+         </span>
+         <button className={styles.arrow} onClick={() => step(1)} aria-label="Next month">
+           <Chevron dir="right" />
+         </button>
+       </div>
+ 
+-      <div className={styles.grid}>
++      <div className={styles.grid} role="grid" aria-labelledby={`cal-month-${month}-${year}`}>
+         {WEEKDAYS.map((w, i) => (
+           <span key={i} className={styles.weekday}>
+             {w}
+@@ -71,6 +73,7 @@ export function Calendar({ value, onChange }: CalendarProps) {
+               className={`${styles.day} ${isSelected(day) ? styles.selected : ''}`}
+               onClick={() => onChange(new Date(year, month, day))}
+               aria-pressed={isSelected(day)}
++              aria-label={`${MONTHS[month]} ${day}, ${year}`}
+             >
+               {day}
+             </button>
+diff --git a/src/design-system/NavBar.tsx b/src/design-system/NavBar.tsx
+index 07b424d..b0e9ae2 100644
+--- a/src/design-system/NavBar.tsx
++++ b/src/design-system/NavBar.tsx
+@@ -33,6 +33,7 @@ const icons: Record<TabId, JSX.Element> = {
+ }
+ 
+ const order: TabId[] = ['home', 'search', 'saved', 'info']
++const tabLabels: Record<TabId, string> = { home: 'Home', search: 'Search', saved: 'Saved', info: 'Info' }
+ 
+ export function NavBar({ active, onNavigate }: NavBarProps) {
+   return (
+@@ -43,7 +44,7 @@ export function NavBar({ active, onNavigate }: NavBarProps) {
+             key={tab}
+             className={`${styles.tab} ${active === tab ? styles.active : ''}`}
+             onClick={() => onNavigate?.(tab)}
+-            aria-label={tab}
++            aria-label={tabLabels[tab]}
+             aria-current={active === tab ? 'page' : undefined}
+           >
+             {icons[tab]}
+diff --git a/src/design-system/SectionLabel.tsx b/src/design-system/SectionLabel.tsx
+index 8002907..46223c7 100644
+--- a/src/design-system/SectionLabel.tsx
++++ b/src/design-system/SectionLabel.tsx
+@@ -7,5 +7,11 @@ interface SectionLabelProps {
+ 
+ /** The bracketed mono eyebrow used throughout the design, e.g. [WHAT'S ON]. */
+ export function SectionLabel({ children, as: Tag = 'div' }: SectionLabelProps) {
+-  return <Tag className={styles.label}>[{children}]</Tag>
++  return (
++    <Tag className={styles.label} role="heading" aria-level={2}>
++      <span aria-hidden="true">[</span>
++      {children}
++      <span aria-hidden="true">]</span>
++    </Tag>
++  )
+ }
